@@ -1,3 +1,5 @@
+#! /bin/sh
+
 #hardware info
 hostname=$(hostname -f)
 cpu_number=$(echo "$lscpu_out"  | egrep "^CPU\(s\):" | awk '{print $2}' | xargs)

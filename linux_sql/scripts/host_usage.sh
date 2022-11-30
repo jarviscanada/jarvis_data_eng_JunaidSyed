@@ -1,3 +1,5 @@
+#! /bin/sh
+
 #hardward usage info
 memory_free=$(echo "$(free -m)" | egrep "^Mem:" | awk '{print $4}' | xargs)
 cpu_idle=$(echo $(vmstat) | egrep "procs" | awk '{print $38}' | xargs)
