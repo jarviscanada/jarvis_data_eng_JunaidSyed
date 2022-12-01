@@ -8,7 +8,7 @@ psql_password=$5
 
 # Check number of args
 if [ $# -ne 5 ]; then
-  echo "Need 5 parameters: ./host_usage.sh psql_host psql_port db_name psql_user psql_password"
+  echo "Need 5 arguments: ./host_usage.sh psql_host psql_port db_name psql_user psql_password"
   exit 1
 fi
 
@@ -30,7 +30,7 @@ cpu_kernel=$(get_vmstat_value "procs" "{print \$39}")
 disk_io=$(echo "$(vmstat -d)" | egrep "^sda" | awk '{print $10}' | xargs)
 disk_available=$(echo "$(df -BM /)" | egrep "^/" | awk '{print substr($4, 1, length($4)-1)}' | xargs)
 
-# Construct the INSERT statement
+# create insert statement
 insert_stmt=$(cat <<-END
 INSERT INTO host_usage (
   timestamp, host_id, memory_free, cpu_idle,

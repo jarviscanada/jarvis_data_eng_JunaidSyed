@@ -8,7 +8,7 @@ psql_password=$5
 
 # Check number of args
 if [ $# -ne 5 ]; then
-  echo "Need 5 parameters: ./host_info.sh psql_host psql_port db_name psql_user psql_password"
+  echo "Need 5 arguments: ./host_info.sh psql_host psql_port db_name psql_user psql_password"
   exit 1
 fi
 
@@ -31,7 +31,7 @@ L2_cache=$(get_lscpu_value "^L2\ cache:" "{print substr(\$3, 1, length(\$3)-1)}"
 total_mem=$(echo "$(free -k)" | egrep "^Mem:" | awk '{print $2}' | xargs)
 timestamp=$(date +'%Y-%m-%d %H:%M:%S')
 
-# insert statement
+# create insert statement
 insert_stmt=$(cat <<-END
 INSERT INTO host_info (
   hostname, cpu_number, cpu_architecture,
