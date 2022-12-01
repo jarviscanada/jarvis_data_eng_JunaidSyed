@@ -30,7 +30,6 @@ cpu_kernel=$(get_vmstat_value "procs" "{print \$39}")
 disk_io=$(echo "$(vmstat -d)" | egrep "^sda" | awk '{print $10}' | xargs)
 disk_available=$(echo "$(df -BM /)" | egrep "^/" | awk '{print substr($4, 1, length($4)-1)}' | xargs)
 
-host_id="(SELECT id FROM host_info WHERE hostname=\"$hostname\")";
 # Construct the INSERT statement
 insert_stmt=$(cat <<-END
 INSERT INTO host_usage (
@@ -38,7 +37,11 @@ INSERT INTO host_usage (
   cpu_kernel, disk_io, disk_available
 )
 VALUES (
-  '$timestamp', '$host_id', '$memory_free', '$cpu_idle',
+  '$timestamp',
+  (SELECT id
+  FROM host_info
+  WHERe hostname = '$hostname'),
+  '$memory_free', '$cpu_idle',
   '$cpu_kernel', '$disk_io', '$disk_available'
 );
 END
