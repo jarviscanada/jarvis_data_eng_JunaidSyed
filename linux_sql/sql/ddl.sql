@@ -16,11 +16,12 @@ CREATE TABLE IF NOT EXISTS host_info (
 -- host_usage table
 CREATE TABLE IF NOT EXISTS host_usage (
     timestampUTC TIMESTAMP NOT NULL,
-    host_id INTEGER NOT NULL REFERENCES host_info (id) ON DELETE CASCADE,
+    host_id INTEGER NOT NULL,
     memory_free INTEGER NOT NULL,
     cpu_idle INTEGER NOT NULL,
     cpu_kernel INTEGER NOT NULL,
     disk_io INTEGER NOT NULL,
     disk_available INTEGER NOT NULL,
-    PRIMARY KEY (timestampUTC, host_id)
+    PRIMARY KEY (timestampUTC, host_id),
+    FOREIGN KEY (host_ID) REFERENCES host_info (id) ON DELETE CASCADE
 );
