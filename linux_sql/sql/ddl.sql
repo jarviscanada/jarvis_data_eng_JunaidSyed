@@ -10,12 +10,12 @@ CREATE TABLE IF NOT EXISTS host_info (
     cpu_mhz FLOAT NOT NULL,
     L2_cache INTEGER NOT NULL,
     total_mem INTEGER NOT NULL,
-    timestampUTC TIMESTAMP NOT NULL
+    "timestamp" TIMESTAMP NOT NULL
 );
 
 -- host_usage table
 CREATE TABLE IF NOT EXISTS host_usage (
-    timestampUTC TIMESTAMP NOT NULL,
+    "timestamp" TIMESTAMP NOT NULL,
     host_id INTEGER NOT NULL,
     memory_free INTEGER NOT NULL,
     cpu_idle INTEGER NOT NULL,
