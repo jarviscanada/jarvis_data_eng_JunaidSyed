@@ -12,7 +12,7 @@ This Linux cluster monitor project is an agent monitoring tool which uses bash s
 
 ### Quick Start
 
-Note: arguments with [] requires you to provide the data to command
+Note: arguments with [ ] requires you to provide the data to command
 
 1. Install Postgress and Docker
 2. Open terminal then create and run psql instance
