@@ -4,7 +4,7 @@
 
 Tech Stack: Git, Bash, docker, PSQL
 
-This Linux cluster monitor project is an agent monitoring tool which uses bash scripts to record host hardware specifications (model, architecture, etc) and host hardware usage (memory, cpu usage, etc). The recorded information is then stored in a PostgresSQL database. The hardware specifications are captured and stored once on installation while hardware usage is monitored every minute. This data can then be used by an infrasturcture team in the future to generate reports and resource planning.
+This Linux cluster monitor project is an agent monitoring tool which uses bash scripts to record host hardware specifications (model, architecture, etc) and host hardware usage (memory, cpu usage, etc). The recorded information is then stored in a PostgresSQL database. The hardware specifications are captured and stored once on installation while hardware usage is monitored every minute. This data can then be used by an infrastructure team in the future to generate reports and resource planning.
 
 ### Architecture
 
@@ -12,9 +12,9 @@ This Linux cluster monitor project is an agent monitoring tool which uses bash s
 
 ### Quick Start
 
-Note: arguments with [ ] requires you to provide the data to command
+Note: arguments with [ ] requires you to provide the data to the command
 
-1. Install Postgress and Docker
+1. Install Postgres and Docker
 2. Open terminal then create and run psql instance
    `./scripts/psql_docker.sh [create|start|stop] [username] [password]`
 3. Create database and tables
@@ -51,7 +51,7 @@ Note: arguments with [ ] requires you to provide the data to command
 | cpu_number       | Number of CPUs                                   | integer   | not null                      |
 | cpu_architecture | CPU architecture of host                         | string    | not null                      |
 | cpu_model        | CPU model of host                                | string    | not null                      |
-| cpu_mhz          | Clock speed of CPU caluclated in megahertz (mhz) | float     | not null                      |
+| cpu_mhz          | Clock speed of CPU caluclated in megahertz       | float     | not null                      |
 | L2_cache         | Amount of L2 cache measured in kilobytes         | integer   | not null                      |
 | total_mem        | Total memory of the host measured in kilobytes   | integer   | not null                      |
 | timestamp        | Timestamp of data collection in UTC time         | timestamp | not null                      |
@@ -68,7 +68,7 @@ Note: arguments with [ ] requires you to provide the data to command
 | disk_io        | Number of disk I/0 operations in progress     | integer   | not null                                                |
 | disk_available | Available disk space measured in megabytes    | integer   | not null                                                |
 
-### Test
+### Testing
 
 All testing was done manually. Scripts were tested for every test case and results were checked according to specifications.
 
