@@ -12,21 +12,24 @@ This Linux cluster monitor project is an agent monitoring tool which uses bash s
 
 ### Quick Start
 
-1. Install Postgress then create and run psql instance
+Note: arguments with [] requires you to provide the data to command
+
+1. Install Postgress and Docker
+2. Open terminal then create and run psql instance
    `./scripts/psql_docker.sh [create|start|stop] [username] [password]`
-2. Create database and tables
+3. Create database and tables
    ```
    export PGPASSWORD=[password]
    psql -h localhost -U [username] -c "CREATE DATABASE host_agent;"
    psql -h localhost -U [username] -d host_agent -f ./sql/ddl.sql
    ```
-3. Insert hardware specs data into the database
+4. Insert host hardware info into the database
    `./scripts/host_info.sh localhost 5432 host_agent [username] [password]`
-4. Insert hardware usage data into the database
+5. Insert host hardware usage data into the database
    `./scripts/host_usage.sh localhost 5432 host_agent [username] [password]`
-5. Edit crontab jobs file
+6. Edit crontab jobs file
    `crontab -e`
-6. Add job to crontab file to run every minute
+7. Add job to crontab file to run every minute
    `* * * * * bash /path/to/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log`
 
 ### Script File Descriptions
