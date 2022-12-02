@@ -4,7 +4,7 @@
 
 Tech Stack: Git, Bash, docker, PSQL
 
-This Linux cluster monitor project is an agent monitoring tool which uses bash scripts to record host hardware specifications (model, architecture, etc) and host hardware usage (memory, cpu usage, etc). The recorded information is then stored in an PostgresSQL database. The hardware specifications are captured and stored once on installation while hardware usage is monitored every minute. This data can then be used by an infrasturcture team in the future to generate reports and resource planning.
+This Linux cluster monitor project is an agent monitoring tool which uses bash scripts to record host hardware specifications (model, architecture, etc) and host hardware usage (memory, cpu usage, etc). The recorded information is then stored in a PostgresSQL database. The hardware specifications are captured and stored once on installation while hardware usage is monitored every minute. This data can then be used by an infrasturcture team in the future to generate reports and resource planning.
 
 ### Architecture
 
