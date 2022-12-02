@@ -8,7 +8,7 @@ This Linux cluster monitor project is an agent monitoring tool which uses bash s
 
 ### Architecture
 
-![Architecture Image](https://github.com/jarviscanada/jarvis_data_eng_JunaidSyed/tree/develop/linux_sql/assets/Architecture.drawio.png)
+![Architecture Image](https://github.com/jarviscanada/jarvis_data_eng_JunaidSyed/blob/feature/architecture/linux_sql/assets/Architecture.drawio.png)
 
 ### Quick Start
 
