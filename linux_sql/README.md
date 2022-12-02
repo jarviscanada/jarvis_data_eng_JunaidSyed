@@ -1,6 +1,6 @@
 # Linux Cluster Monitor
 
-### Introduction
+### Project Description
 
 Tech Stack: Git, Bash, docker, PSQL
 
@@ -35,7 +35,7 @@ This Linux cluster monitor project is an agent monitoring tool which uses bash s
 - `./scripts/host_usage.sh`: Runs every minute using chrontab. Collects host usage data and inserts into host_usage table in database.
 - `./scripts/psql_docker.sh`: Used to create container using psql image and starts/stops docker containers.
 - `./sql/ddl.sql`: Automates the process for creating tables for host_info and host_usage tables.
-- `./sql/queries.sql`: Contains queries to analyze database tables.
+- `./sql/queries.sql`: Queries to analyze database tables.
 
 ### Database Modeling
 
