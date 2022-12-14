@@ -34,15 +34,11 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JunaidSyed
 
 
 ## Education
-**Universoty of Toronto (Sept 2018 - Aug 2022)**, Bachelor of Computer Science, Computer Science
+**University of Toronto (Sept 2018 - Aug 2022)**, Bachelor of Computer Science, Computer Science
 - Entrance Scholarship
 - Dean's List (2018)
 - GPA: 3.39/4.0
 
 
 ## Miscellaneous
-- Udacity Machine Learning (2019)
-- Winner
-- Basketball player
-- Competitive gaming
-- Volunteer, ABC Food bank: Ut enim ad minim veniam
+- UofT Entrance ScholarShip
