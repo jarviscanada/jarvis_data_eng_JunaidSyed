@@ -1,15 +1,21 @@
 package ca.jrvs.apps.grep;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Pattern;
 import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-public class JavaGrepImp implements JavaGrep{
+public class JavaGrepImp implements JavaGrep {
 
   final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
 
@@ -32,7 +38,7 @@ public class JavaGrepImp implements JavaGrep{
 
     try {
       javaGrepImp.process();
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       javaGrepImp.logger.error("Error: Unable to process", ex);
     }
   }
@@ -41,9 +47,9 @@ public class JavaGrepImp implements JavaGrep{
   public void process() throws IOException {
     List<String> matchedLines = new ArrayList<>();
 
-    for(File file: this.listFiles(this.rootPath)) {
-      for(String line: this.readLines(file)) {
-        if(this.containsPattern(line)) {
+    for (File file : this.listFiles(this.rootPath)) {
+      for (String line : this.readLines(file)) {
+        if (this.containsPattern(line)) {
           matchedLines.add(file.getName() + ": " + line);
         }
       }
@@ -56,6 +62,9 @@ public class JavaGrepImp implements JavaGrep{
   public List<File> listFiles(String rootDir) {
     File rootDirectory = new File(rootDir);
     File[] fileArray = rootDirectory.listFiles();
+    if (fileArray == null) {
+      fileArray = new File[]{};
+    }
     List<File> fileList = new ArrayList<>(Arrays.asList(fileArray));
 
     List<File> childrenFileList = new ArrayList<>();
@@ -79,7 +88,7 @@ public class JavaGrepImp implements JavaGrep{
     try {
       BufferedReader reader = new BufferedReader(new FileReader(inputFile));
       String currLine = reader.readLine();
-      while(currLine  != null) {
+      while (currLine != null) {
         lines.add(currLine);
         currLine = reader.readLine();
       }
@@ -87,7 +96,7 @@ public class JavaGrepImp implements JavaGrep{
 
       return lines;
 
-    } catch(FileNotFoundException ex) {
+    } catch (FileNotFoundException ex) {
       throw new IllegalArgumentException("Given file does not exist", ex);
     } catch (IOException ex) {
       throw new IllegalArgumentException("Given file cannot be read", ex);

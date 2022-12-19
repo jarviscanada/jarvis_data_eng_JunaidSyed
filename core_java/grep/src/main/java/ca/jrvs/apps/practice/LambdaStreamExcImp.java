@@ -11,7 +11,7 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class LambdaStreamExcImp implements LambdaStreamExc{
+public class LambdaStreamExcImp implements LambdaStreamExc {
 
   @Override
   public Stream<String> createStrStream(String... strings) {
@@ -51,7 +51,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
 
   @Override
   public IntStream createIntStream(int start, int end) {
-    return IntStream.range(start, end+1);
+    return IntStream.range(start, end + 1);
   }
 
   @Override

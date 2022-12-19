@@ -10,30 +10,28 @@ public interface LambdaStreamExc {
 
   /**
    * Create a String stream from array
-   *
+   * <p>
    * note: arbitrary number of value will be stored in an array
    *
    * @param strings any strings
    * @return a stream of strings
    */
-  Stream<String> createStrStream(String ... strings);
+  Stream<String> createStrStream(String... strings);
 
   /**
-   * Convert all strings to uppercase
-   * please use createStrStream
+   * Convert all strings to uppercase please use createStrStream
    *
    * @param strings any strings
    * @return a stream of capitalized strings
    */
-  Stream<String> toUpperCase(String ... strings);
+  Stream<String> toUpperCase(String... strings);
 
   /**
-   * filter strings that contains the pattern
-   * e.g.
-   * filter(stringStream, "a") will return another stream which no element contains a
+   * filter strings that contains the pattern e.g. filter(stringStream, "a") will return another
+   * stream which no element contains a
    *
    * @param stringStream a stream of strings
-   * @param pattern a regex string
+   * @param pattern      a regex string
    * @return stream of strings where strings were removed using regex pattern string
    */
   Stream<String> filter(Stream<String> stringStream, String pattern);
@@ -50,7 +48,7 @@ public interface LambdaStreamExc {
    * Convert a stream to list
    *
    * @param stream a stream of any type
-   * @param <E> any type
+   * @param <E>    any type
    * @return a list representation of the given stream
    */
   <E> List<E> toList(Stream<E> stream);
@@ -67,14 +65,13 @@ public interface LambdaStreamExc {
    * Create a IntStream range from start to end inclusive
    *
    * @param start an integer to start at
-   * @param end an integer to end at
+   * @param end   an integer to end at
    * @return an integer stream containing integers from start to end inclusively
    */
   IntStream createIntStream(int start, int end);
 
   /**
-   * Convert a intStream to a doubleStream
-   * and compute square root of each element
+   * Convert a intStream to a doubleStream and compute square root of each element
    *
    * @param intStream an integer stream
    * @return a double stream of square roots created from  integer stream
@@ -90,20 +87,16 @@ public interface LambdaStreamExc {
   IntStream getOdd(IntStream intStream);
 
   /**
-   * Return a lambda function that print a message with a prefix and suffix
-   * This lambda can be useful to format logs
-   *
-   * You will learn:
-   *   - functional interface http://bit.ly/2pTXRwM & http://bit.ly/33onFig
-   *   - lambda syntax
-   *
-   * e.g.
-   * LambdaStreamExc lse = new LambdaStreamImp();
-   * Consumer<String> printer = lse.getLambdaPrinter("start>", "<end");
-   * printer.accept("Message body");
-   *
-   * sout:
-   * start>Message body<end
+   * Return a lambda function that print a message with a prefix and suffix This lambda can be
+   * useful to format logs
+   * <p>
+   * You will learn: - functional interface http://bit.ly/2pTXRwM & http://bit.ly/33onFig - lambda
+   * syntax
+   * <p>
+   * e.g. LambdaStreamExc lse = new LambdaStreamImp(); Consumer<String> printer =
+   * lse.getLambdaPrinter("start>", "<end"); printer.accept("Message body");
+   * <p>
+   * sout: start>Message body<end
    *
    * @param prefix prefix str
    * @param suffix suffix str
@@ -112,44 +105,34 @@ public interface LambdaStreamExc {
   Consumer<String> getLambdaPrinter(String prefix, String suffix);
 
   /**
-   * Print each message with a given printer
-   * Please use `getLambdaPrinter` method
-   *
-   * e.g.
-   * String[] messages = {"a","b","c"};
-   * lse.printMessages(messages, lse.getLambdaPrinter("msg:", "!") );
-   *
-   * sout:
-   * msg:a!
-   * msg:b!
-   * msg:c!
+   * Print each message with a given printer Please use `getLambdaPrinter` method
+   * <p>
+   * e.g. String[] messages = {"a","b","c"}; lse.printMessages(messages,
+   * lse.getLambdaPrinter("msg:", "!") );
+   * <p>
+   * sout: msg:a! msg:b! msg:c!
    *
    * @param messages string array
-   * @param printer a function that would print a given string
+   * @param printer  a function that would print a given string
    */
   void printMessages(String[] messages, Consumer<String> printer);
 
   /**
-   * Print all odd number from a intStream.
-   * Please use `createIntStream` and `getLambdaPrinter` methods
-   *
-   * e.g.
-   * lse.printOdd(lse.createIntStream(0, 5), lse.getLambdaPrinter("odd number:", "!"));
-   *
-   * sout:
-   * odd number:1!
-   * odd number:3!
-   * odd number:5!
+   * Print all odd number from a intStream. Please use `createIntStream` and `getLambdaPrinter`
+   * methods
+   * <p>
+   * e.g. lse.printOdd(lse.createIntStream(0, 5), lse.getLambdaPrinter("odd number:", "!"));
+   * <p>
+   * sout: odd number:1! odd number:3! odd number:5!
    *
    * @param intStream an integer stream
-   * @param printer a function that would print the given string
+   * @param printer   a function that would print the given string
    */
   void printOdd(IntStream intStream, Consumer<String> printer);
 
   /**
-   * Square each number from the input.
-   * Please write two solutions and compare difference
-   *   - using flatMap
+   * Square each number from the input. Please write two solutions and compare difference - using
+   * flatMap
    *
    * @param ints a stream of list of integers
    * @return a stream of squared integers from the given stream
