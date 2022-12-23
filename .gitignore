@@ -2,3 +2,5 @@
 *.iml
 intellij-java-google-style.xml
 target/
+tsconfig.json
+package.json
