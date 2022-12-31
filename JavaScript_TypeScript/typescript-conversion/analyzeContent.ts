@@ -32,13 +32,12 @@ function analyzeText(content: string): number {
   return textArray.length;
 }
 
-//Assumtions:
+//Assumptions:
 //HTML content starts with <html> tag
 //CSS content starts with body{}
 //Anything else is plain text
 function analyzeContent(content: string): Dictionary<any> {
-  let contentType = "";
-  let output: Dictionary<any> = { contentType };
+  let output: Dictionary<any> = {};
   content = content.trim();
   if (content.search(/^<html>/) >= 0) {
     output.contentType = "HTML";

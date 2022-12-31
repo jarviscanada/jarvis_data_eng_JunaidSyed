@@ -66,10 +66,8 @@ function solveSudoku(board: string[][]): string[][] {
   let row = emptySpot[0];
   let col = emptySpot[1];
 
-  if (row === -1 && col === -1) {
-    // board is full, return the solution
-    return board;
-  }
+  if (row === -1 && col === -1) return board;
+
   for (let num = 1; num <= 9; num++) {
     if (
       checkCol(board, col, num) &&
@@ -85,6 +83,3 @@ function solveSudoku(board: string[][]): string[][] {
 
   return board;
 }
-console.log(input);
-console.log("___________________________________________");
-console.log(solveSudoku(input));

@@ -30,7 +30,7 @@ function analyzeText(content) {
   return numberOfLines;
 }
 
-//Assumtions:
+//Assumptions:
 //HTML content starts with <html> tag
 //CSS content starts with body{}
 //Anything else is plain text

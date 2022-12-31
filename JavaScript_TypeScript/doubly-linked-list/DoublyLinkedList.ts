@@ -70,7 +70,7 @@ class DoublyLinkedList<T> {
     lastNode.next = null;
   }
 
-  // shift head of the list counterclockwise
+  // shift head of the list counter clockwise
   unshift(position: number): void {
     if (position < 0) {
       console.log("Error: position >=0");
@@ -88,21 +88,4 @@ class DoublyLinkedList<T> {
     this.head!.prev = null;
     lastNode.next = null;
   }
-}
-
-let dll = new DoublyLinkedList(1);
-
-dll.push(2);
-dll.push(3);
-dll.push(4);
-dll.push(5);
-dll.push(6);
-dll.unshift(2);
-dll.shift(2);
-let curr = dll.head;
-console.log("HEAD_________________________________________");
-console.log(curr);
-while (curr != null) {
-  console.log(curr.value);
-  curr = curr!.next;
 }
