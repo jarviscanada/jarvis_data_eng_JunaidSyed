@@ -8,8 +8,10 @@ The grep project is a command line utility that allows the user to search all fi
 
 ### Quick Start
 
-The application can run from source with `mvn clean package` then running the jar file with the arguments in the following order:
-<regex pattern> <host path to data folder> <host path to log file>
+The application can run from source with `mvn clean package` then running the jar file with `java -jar` with the arguments in the following order:
+
+`<regex pattern> <host path to data folder> <host path to log file>`
+
 eg. .*Romeo.*Juliet.\* /data /out/javaGrep.out
 
 The application can also be used with docker:
