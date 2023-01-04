@@ -8,11 +8,11 @@ The grep project is a command line utility that allows the user to search all fi
 
 ### Quick Start
 
-The application can run from source by providing arguments in the following order:
+The application can run from source with `mvn clean package` then running the jar file with the arguments in the following order:
 <regex pattern> <host path to data folder> <host path to log file>
 eg. .*Romeo.*Juliet.\* /data /out/javaGrep.out
 
-The application can also be used using docker:
+The application can also be used with docker:
 
 ```
 docker pull junaidsyedali2000/grep
@@ -36,11 +36,11 @@ for every file in files found recursively inside directory:
 write all lines in matchedLines to output file
 ```
 
-## Performance Issue
+### Performance Issue
 
 There is a performance issue with the grep approach of using loops. Reading files in this way may cause memory problems with large files. If the file is too large, there may not be enough memory to handle the reading and processing which will cause the program to crash. This is where streams have an advantage in my second grep implementation. Streams are memory efficient since you don't need to load large amounts of data in memory before you are able to process it. Streams make our data composable where each function can be made modular and data is passed to the next function to be worked on.
 
-# Test
+### Test
 
 The application was tested manually on a sample data file with different sets of test cases. The application output file was compared with my personal results to ensure similar results.
 
@@ -52,7 +52,7 @@ The application was tested manually on a sample data file with different sets of
 4. Executed docker build -t command to build a docker image using the Dockerfile
 5. Deployed image to Docker Hub with docker push command
 
-# Improvements
+### Improvements
 
 Performance can be improved with:
 
