@@ -1,16 +1,6 @@
 import { Injectable } from '@angular/core';
-
-interface Trader {
-  key: string;
-  id: number;
-  firstName: string;
-  lastName: string;
-  dob: string;
-  country: string;
-  email: string;
-  amount: number;
-  actions: string;
-}
+import { DialogData, Trader } from 'src/types/types';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -42,22 +32,16 @@ export class TraderListService {
   ];
   constructor() {}
 
-  addTrader(
-    firstName: string,
-    lastName: string,
-    dob: string,
-    country: string,
-    email: string
-  ) {
+  addTrader(data: DialogData) {
     let date = Date.now();
     let trader: Trader = {
       key: date.toString(),
       id: date,
-      firstName,
-      lastName,
-      dob,
-      country,
-      email,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      dob: data.dob,
+      country: data.country,
+      email: data.email,
       amount: 0,
       actions: '<button (click)="deleteTrader">Delete Trader</button>',
     };
@@ -71,8 +55,8 @@ export class TraderListService {
     );
   }
 
-  getDataSource(): Trader[] {
-    return this.traderList;
+  getDataSource(): Observable<Trader[]> {
+    return of(this.traderList);
   }
 
   getColumns(): string[] {

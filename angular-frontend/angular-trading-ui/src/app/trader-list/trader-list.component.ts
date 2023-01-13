@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TraderListService } from './trader-list.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { Trader } from 'src/types/types';
 
 @Component({
   selector: 'app-trader-list',
@@ -7,25 +9,25 @@ import { TraderListService } from './trader-list.service';
   styleUrls: ['./trader-list.component.css'],
 })
 export class TraderListComponent {
-  dataSource;
+  dataSource: any;
   displayedColumns;
 
   constructor(private traderListService: TraderListService) {
-    this.dataSource = traderListService.getDataSource();
+    this.dataSource;
     this.displayedColumns = traderListService.getColumns();
+  }
+
+  ngOnInit() {
+    this.refreshTable();
+  }
+  refreshTable() {
+    this.traderListService.getDataSource().subscribe((res) => {
+      console.log(res);
+      this.dataSource = [...res];
+    });
   }
   onDeleteTrader(id: number) {
     this.traderListService.deleteTrader(id);
-    this.dataSource = [...this.traderListService.getDataSource()];
-  }
-  onAddTrader(
-    firstName: string,
-    lastName: string,
-    dob: string,
-    country: string,
-    email: string
-  ) {
-    this.traderListService.addTrader(firstName, lastName, dob, country, email);
-    this.dataSource = [...this.traderListService.getDataSource()];
+    this.refreshTable();
   }
 }
