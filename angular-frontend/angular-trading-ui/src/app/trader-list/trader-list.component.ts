@@ -10,8 +10,22 @@ export class TraderListComponent {
   dataSource;
   displayedColumns;
 
-  constructor(traderListService: TraderListService) {
+  constructor(private traderListService: TraderListService) {
     this.dataSource = traderListService.getDataSource();
     this.displayedColumns = traderListService.getColumns();
+  }
+  onDeleteTrader(id: number) {
+    this.traderListService.deleteTrader(id);
+    this.dataSource = [...this.traderListService.getDataSource()];
+  }
+  onAddTrader(
+    firstName: string,
+    lastName: string,
+    dob: string,
+    country: string,
+    email: string
+  ) {
+    this.traderListService.addTrader(firstName, lastName, dob, country, email);
+    this.dataSource = [...this.traderListService.getDataSource()];
   }
 }

@@ -29,8 +29,8 @@ export class TraderListService {
       actions: '<button (click)="deleteTrader">Delete Trader</button>',
     },
     {
-      key: '1',
-      id: 1,
+      key: '2',
+      id: 2,
       firstName: 'Tom',
       lastName: 'Harrison',
       dob: new Date().toString(),
@@ -41,6 +41,35 @@ export class TraderListService {
     },
   ];
   constructor() {}
+
+  addTrader(
+    firstName: string,
+    lastName: string,
+    dob: string,
+    country: string,
+    email: string
+  ) {
+    let date = Date.now();
+    let trader: Trader = {
+      key: date.toString(),
+      id: date,
+      firstName,
+      lastName,
+      dob,
+      country,
+      email,
+      amount: 0,
+      actions: '<button (click)="deleteTrader">Delete Trader</button>',
+    };
+    this.traderList.push(trader);
+  }
+
+  deleteTrader(id: number) {
+    this.traderList.splice(
+      this.traderList.findIndex((trader) => trader.id == id),
+      1
+    );
+  }
 
   getDataSource(): Trader[] {
     return this.traderList;
