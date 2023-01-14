@@ -1,37 +1,39 @@
-<h1>New Trader</h1>
-<ol>
-  <li>
-    <mat-form-field appearance="fill">
-      <mat-label>First Name</mat-label>
-      <input matInput [(ngModel)]="data.firstName" />
-    </mat-form-field>
-  </li>
-  <li>
-    <mat-form-field appearance="fill">
-      <mat-label>Last Name</mat-label>
-      <input matInput [(ngModel)]="data.lastName" />
-    </mat-form-field>
-  </li>
-  <li>
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput [(ngModel)]="data.email" />
-    </mat-form-field>
-  </li>
-  <li>
-    <mat-form-field appearance="fill">
-      <mat-label>Country</mat-label>
-      <input matInput [(ngModel)]="data.country" />
-    </mat-form-field>
-  </li>
-  <li>
-    <mat-form-field appearance="fill">
-      <mat-label>Date of Birth</mat-label>
-      <input matInput [(ngModel)]="data.dob" />
-    </mat-form-field>
-  </li>
-</ol>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Submit</button>
+<div class="dialog-form">
+  <h1>New Trader</h1>
+  <ul>
+    <li>
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="data.firstName" />
+      </mat-form-field>
+    </li>
+    <li>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="data.lastName" />
+      </mat-form-field>
+    </li>
+    <li>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="data.email" />
+      </mat-form-field>
+    </li>
+    <li>
+      <mat-form-field appearance="fill">
+        <mat-label>Country</mat-label>
+        <input matInput [(ngModel)]="data.country" />
+      </mat-form-field>
+    </li>
+    <li>
+      <mat-form-field appearance="fill">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [(ngModel)]="data.dob" />
+      </mat-form-field>
+    </li>
+  </ul>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Submit</button>
+  </div>
 </div>

@@ -10,22 +10,21 @@ import { DialogData } from 'src/types/types';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  private data: DialogData = {
-    firstName: '',
-    lastName: '',
-    country: '',
-    email: '',
-    dob: '',
-  };
-
   constructor(
     private traderListService: TraderListService,
     public dialog: MatDialog
   ) {}
 
   openDialog(): void {
+    let data: DialogData = {
+      firstName: '',
+      lastName: '',
+      country: '',
+      email: '',
+      dob: '',
+    };
     const dialogRef = this.dialog.open(NewTraderDialogueComponent, {
-      data: this.data,
+      data: data,
     });
 
     dialogRef.afterClosed().subscribe((result: DialogData) => {

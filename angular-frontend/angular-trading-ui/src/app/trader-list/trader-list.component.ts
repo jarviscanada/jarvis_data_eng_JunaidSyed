@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TraderListService } from './trader-list.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { Trader } from 'src/types/types';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogData } from 'src/types/types';
+import { NewTraderDialogueComponent } from '../new-trader-dialogue/new-trader-dialogue.component';
 
 @Component({
   selector: 'app-trader-list',
@@ -12,7 +13,10 @@ export class TraderListComponent {
   dataSource: any;
   displayedColumns;
 
-  constructor(private traderListService: TraderListService) {
+  constructor(
+    private traderListService: TraderListService,
+    public dialog: MatDialog
+  ) {
     this.dataSource;
     this.displayedColumns = traderListService.getColumns();
   }
@@ -22,12 +26,30 @@ export class TraderListComponent {
   }
   refreshTable() {
     this.traderListService.getDataSource().subscribe((res) => {
-      console.log(res);
       this.dataSource = [...res];
     });
   }
   onDeleteTrader(id: number) {
     this.traderListService.deleteTrader(id);
     this.refreshTable();
+  }
+
+  onEditTrader(id: number) {
+    let trader = this.traderListService.getTraderById(id);
+    let data: DialogData = {
+      firstName: trader.firstName,
+      lastName: trader.lastName,
+      country: trader.country,
+      email: trader.email,
+      dob: trader.dob,
+    };
+    const dialogRef = this.dialog.open(NewTraderDialogueComponent, {
+      data: { id, ...data },
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      this.traderListService.editTrader(result);
+      this.refreshTable();
+    });
   }
 }

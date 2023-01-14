@@ -55,6 +55,22 @@ export class TraderListService {
     );
   }
 
+  editTrader(data: any) {
+    let index = this.traderList.findIndex((t) => t.id == data.id)!;
+    let trader: Trader = {
+      key: this.traderList[index].key,
+      id: this.traderList[index].id,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      dob: data.dob,
+      country: data.country,
+      email: data.email,
+      amount: 0,
+      actions: '<button (click)="deleteTrader">Delete Trader</button>',
+    };
+    this.traderList[index] = trader;
+  }
+
   getDataSource(): Observable<Trader[]> {
     return of(this.traderList);
   }
@@ -68,5 +84,9 @@ export class TraderListService {
       'Country',
       'Action',
     ];
+  }
+
+  getTraderById(id: number) {
+    return this.traderList.find((t) => t.id == id)!;
   }
 }
