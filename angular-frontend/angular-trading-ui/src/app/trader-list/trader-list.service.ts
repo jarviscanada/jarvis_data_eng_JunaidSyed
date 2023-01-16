@@ -89,4 +89,9 @@ export class TraderListService {
   getTraderById(id: number) {
     return this.traderList.find((t) => t.id == id)!;
   }
+
+  updateAmount(id: number, amount: number) {
+    let index = this.traderList.findIndex((t) => t.id == id)!;
+    this.traderList[index].amount += amount;
+  }
 }

@@ -38,6 +38,14 @@
         <mat-icon>edit</mat-icon>
         Edit
       </button>
+      <button
+        mat-stroked-button
+        color="primary"
+        routerLink="/trader-account/{{ element.id }}"
+      >
+        <mat-icon>info</mat-icon>
+        Show Details
+      </button>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

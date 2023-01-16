@@ -1,0 +1,25 @@
+<h1>Trader Account</h1>
+<div class="trader-account">
+  <div class="trader-details">
+    <p>First Name: {{ trader.firstName }}</p>
+    <p>Last Name: {{ trader.lastName }}</p>
+    <p>Email: {{ trader.email }}</p>
+    <p>Country: {{ trader.country }}</p>
+    <p>Date of Birth: {{ trader.dob }}</p>
+  </div>
+
+  <div class="trader-amount">
+    <h2>Amount</h2>
+    <p>{{ trader.amount }}</p>
+    <div class="amount-actions">
+      <button (click)="onDeposit()" mat-stroked-button color="primary">
+        <mat-icon>paid</mat-icon>
+        Deposit
+      </button>
+      <button (click)="onWithdraw()" mat-stroked-button color="primary">
+        <mat-icon>output</mat-icon>
+        Withdraw
+      </button>
+    </div>
+  </div>
+</div>

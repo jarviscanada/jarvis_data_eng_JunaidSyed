@@ -18,6 +18,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NewTraderDialogueComponent } from './new-trader-dialogue/new-trader-dialogue.component';
+import { TraderAccountComponent } from './trader-account/trader-account.component';
+import { AmountDialogComponent } from './amount-dialog/amount-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { NewTraderDialogueComponent } from './new-trader-dialogue/new-trader-dia
     NavbarComponent,
     TraderListComponent,
     NewTraderDialogueComponent,
+    TraderAccountComponent,
+    AmountDialogComponent,
   ],
   imports: [
     BrowserModule,
