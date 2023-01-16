@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TraderListComponent } from './trader-list/trader-list.component';
 import { TraderListService } from './trader-list/trader-list.service';
+import { QuotesService } from './quotes/quotes.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -20,6 +21,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NewTraderDialogueComponent } from './new-trader-dialogue/new-trader-dialogue.component';
 import { TraderAccountComponent } from './trader-account/trader-account.component';
 import { AmountDialogComponent } from './amount-dialog/amount-dialog.component';
+import { QuotesComponent } from './quotes/quotes.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { AmountDialogComponent } from './amount-dialog/amount-dialog.component';
     NewTraderDialogueComponent,
     TraderAccountComponent,
     AmountDialogComponent,
+    QuotesComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,7 @@ import { AmountDialogComponent } from './amount-dialog/amount-dialog.component';
     FormsModule,
     MatGridListModule,
   ],
-  providers: [TraderListService],
+  providers: [TraderListService, QuotesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

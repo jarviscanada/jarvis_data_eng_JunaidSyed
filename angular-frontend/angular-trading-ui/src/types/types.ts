@@ -17,3 +17,14 @@ export interface Trader {
   amount: number;
   actions: string;
 }
+
+export interface Quote {
+  key: string;
+  id: number;
+  ticker: string;
+  lastPrice: number;
+  bidPrice: number;
+  bidSize: number;
+  askPrice: number;
+  askSize: number;
+}
