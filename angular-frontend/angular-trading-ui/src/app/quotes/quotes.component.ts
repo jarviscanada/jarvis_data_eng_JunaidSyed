@@ -7,19 +7,19 @@ import { QuotesService } from './quotes.service';
   styleUrls: ['./quotes.component.css'],
 })
 export class QuotesComponent {
-  dataSource: any;
-  displayedColumns: string[];
-  constructor(private quotesService: QuotesService) {
-    this.dataSource = quotesService.getDataSource();
-    this.displayedColumns = quotesService.getColumns();
-  }
+  dataSource: any[] = [];
+  displayedColumns: string[] = [];
+
+  constructor(private quotesService: QuotesService) {}
 
   ngOnInit() {
+    this.displayedColumns = this.quotesService.getColumns();
     this.refreshTable();
   }
+
   refreshTable() {
-    this.quotesService.getDataSource().subscribe((res) => {
-      this.dataSource = [...res];
+    this.quotesService.getDataSource().subscribe((dataSource) => {
+      this.dataSource = dataSource;
     });
   }
 }

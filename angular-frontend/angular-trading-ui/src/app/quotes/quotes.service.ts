@@ -1,37 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Quote } from 'src/types/types';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuotesService {
-  private quoteList: Quote[] = [
-    {
-      key: '1',
-      id: 1,
-      ticker: 'FB',
-      lastPrice: 200,
-      bidPrice: 0,
-      bidSize: 0,
-      askPrice: 0,
-      askSize: 0,
-    },
-    {
-      key: '2',
-      id: 2,
-      ticker: 'AAPL',
-      lastPrice: 400,
-      bidPrice: 0,
-      bidSize: 0,
-      askPrice: 0,
-      askSize: 0,
-    },
-  ];
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getDataSource(): Observable<Quote[]> {
-    return of(this.quoteList);
+  getDataSource() {
+    let request = this.http.get<any[]>(
+      'https://jarvis-express-trading-app.herokuapp.com/api/quote/dailyList'
+    );
+    return request;
   }
 
   getColumns(): string[] {

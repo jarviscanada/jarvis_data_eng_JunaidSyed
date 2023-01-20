@@ -1,78 +1,41 @@
 import { Injectable } from '@angular/core';
-import { DialogData, Trader } from 'src/types/types';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TraderListService {
-  private traderList: Trader[] = [
-    {
-      key: '1',
-      id: 1,
-      firstName: 'Sally',
-      lastName: 'Harrison',
-      dob: new Date().toString(),
-      country: 'canada',
-      email: 'sally@gmail.com',
-      amount: 0,
-      actions: '<button (click)="deleteTrader">Delete Trader</button>',
-    },
-    {
-      key: '2',
-      id: 2,
-      firstName: 'Tom',
-      lastName: 'Harrison',
-      dob: new Date().toString(),
-      country: 'canada',
-      email: 'tom@gmail.com',
-      amount: 0,
-      actions: '<button (click)="deleteTrader">Delete Trader</button>',
-    },
-  ];
-  constructor() {}
+  private traderList: any[] = [];
+  constructor(private http: HttpClient) {}
 
-  addTrader(data: DialogData) {
-    let date = Date.now();
-    let trader: Trader = {
-      key: date.toString(),
-      id: date,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      dob: data.dob,
-      country: data.country,
-      email: data.email,
-      amount: 0,
-      actions: '<button (click)="deleteTrader">Delete Trader</button>',
-    };
-    this.traderList.push(trader);
-  }
-
-  deleteTrader(id: number) {
-    this.traderList.splice(
-      this.traderList.findIndex((trader) => trader.id == id),
-      1
+  addTrader(trader) {
+    return this.http.post(
+      'https://jarvis-express-trading-app.herokuapp.com/api/traders',
+      trader
     );
   }
 
-  editTrader(data: any) {
-    let index = this.traderList.findIndex((t) => t.id == data.id)!;
-    let trader: Trader = {
-      key: this.traderList[index].key,
-      id: this.traderList[index].id,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      dob: data.dob,
-      country: data.country,
-      email: data.email,
-      amount: 0,
-      actions: '<button (click)="deleteTrader">Delete Trader</button>',
-    };
-    this.traderList[index] = trader;
+  deleteTrader(id: number) {
+    return this.http.delete(
+      'https://jarvis-express-trading-app.herokuapp.com/api/traders/' + id
+    );
   }
 
-  getDataSource(): Observable<Trader[]> {
-    return of(this.traderList);
+  // editTrader(trader: any) {
+  //   this.deleteTrader(trader.id).subscribe((response) => {
+  //     this.addTrader(trader);
+  //   });
+  // }
+
+  getDataSource(): Observable<any[]> {
+    let request = this.http.get<any[]>(
+      'https://jarvis-express-trading-app.herokuapp.com/api/traders'
+    );
+    request.subscribe((dataSource) => {
+      this.traderList = dataSource;
+    });
+    return request;
   }
 
   getColumns(): string[] {

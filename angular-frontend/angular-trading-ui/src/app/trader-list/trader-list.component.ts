@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TraderListService } from './trader-list.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogData } from 'src/types/types';
 import { NewTraderDialogueComponent } from '../new-trader-dialogue/new-trader-dialogue.component';
 
 @Component({
@@ -10,33 +9,34 @@ import { NewTraderDialogueComponent } from '../new-trader-dialogue/new-trader-di
   styleUrls: ['./trader-list.component.css'],
 })
 export class TraderListComponent {
-  dataSource: any;
-  displayedColumns;
+  dataSource: any[] = [];
+  displayedColumns: string[] = [];
 
   constructor(
     private traderListService: TraderListService,
     public dialog: MatDialog
-  ) {
-    this.dataSource;
-    this.displayedColumns = traderListService.getColumns();
-  }
+  ) {}
 
   ngOnInit() {
+    this.displayedColumns = this.traderListService.getColumns();
     this.refreshTable();
   }
+
   refreshTable() {
-    this.traderListService.getDataSource().subscribe((res) => {
-      this.dataSource = [...res];
+    this.traderListService.getDataSource().subscribe((dataSource) => {
+      this.dataSource = dataSource;
     });
   }
+
   onDeleteTrader(id: number) {
-    this.traderListService.deleteTrader(id);
-    this.refreshTable();
+    this.traderListService
+      .deleteTrader(id)
+      .subscribe((_) => this.refreshTable());
   }
 
   onEditTrader(id: number) {
     let trader = this.traderListService.getTraderById(id);
-    let data: DialogData = {
+    let data = {
       firstName: trader.firstName,
       lastName: trader.lastName,
       country: trader.country,
@@ -48,8 +48,32 @@ export class TraderListComponent {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      this.traderListService.editTrader(result);
-      this.refreshTable();
+      this.traderListService
+        .deleteTrader(result.id)
+        .subscribe((_) =>
+          this.traderListService
+            .addTrader(result)
+            .subscribe((_) => this.refreshTable())
+        );
+    });
+  }
+
+  onAddTrader(): void {
+    let data = {
+      firstName: '',
+      lastName: '',
+      country: '',
+      email: '',
+      dob: '',
+    };
+    const dialogRef = this.dialog.open(NewTraderDialogueComponent, {
+      data: data,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.traderListService
+        .addTrader(result)
+        .subscribe((_) => this.refreshTable());
     });
   }
 }

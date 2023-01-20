@@ -1,3 +1,12 @@
+<button
+  class="add-btn"
+  (click)="onAddTrader()"
+  mat-stroked-button
+  color="primary"
+>
+  <mat-icon>add</mat-icon>
+  Add Trader
+</button>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="First Name">
     <th mat-header-cell *matHeaderCellDef>First Name</th>

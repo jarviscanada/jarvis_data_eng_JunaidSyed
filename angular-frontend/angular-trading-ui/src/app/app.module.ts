@@ -10,6 +10,7 @@ import { TraderListComponent } from './trader-list/trader-list.component';
 import { TraderListService } from './trader-list/trader-list.service';
 import { QuotesService } from './quotes/quotes.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
@@ -47,6 +48,7 @@ import { QuotesComponent } from './quotes/quotes.component';
     ReactiveFormsModule,
     FormsModule,
     MatGridListModule,
+    HttpClientModule,
   ],
   providers: [TraderListService, QuotesService],
   bootstrap: [AppComponent],

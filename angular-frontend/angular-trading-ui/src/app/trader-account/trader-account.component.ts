@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Trader } from 'src/types/types';
 import { TraderListService } from '../trader-list/trader-list.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AmountDialogComponent } from '../amount-dialog/amount-dialog.component';
@@ -10,14 +9,16 @@ import { AmountDialogComponent } from '../amount-dialog/amount-dialog.component'
   templateUrl: './trader-account.component.html',
   styleUrls: ['./trader-account.component.css'],
 })
-export class TraderAccountComponent {
-  traderId: string;
-  trader: Trader;
+export class TraderAccountComponent implements OnInit {
+  traderId: string = '';
+  trader: any;
   constructor(
     private activatedRoute: ActivatedRoute,
     private traderListService: TraderListService,
     public dialog: MatDialog
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.traderId = this.activatedRoute.snapshot.paramMap.get('id')!;
     this.trader = this.traderListService.getTraderById(parseInt(this.traderId));
   }
