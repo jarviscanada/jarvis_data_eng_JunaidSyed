@@ -1,0 +1,15 @@
+<div class="dialog-form">
+  <h1>Enter Amount</h1>
+  <ul>
+    <li>
+      <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input matInput [(ngModel)]="data.amount" placeholder="Ex. 200" />
+      </mat-form-field>
+    </li>
+  </ul>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Submit</button>
+  </div>
+</div>
