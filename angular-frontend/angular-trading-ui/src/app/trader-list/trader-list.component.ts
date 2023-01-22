@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TraderListService } from './trader-list.service';
 import { MatDialog } from '@angular/material/dialog';
-import { NewTraderDialogueComponent } from '../new-trader-dialogue/new-trader-dialogue.component';
+import { NewTraderDialogComponent } from '../new-trader-dialog/new-trader-dialog.component';
 
 @Component({
   selector: 'app-trader-list',
@@ -43,7 +43,7 @@ export class TraderListComponent {
       email: trader.email,
       dob: trader.dob,
     };
-    const dialogRef = this.dialog.open(NewTraderDialogueComponent, {
+    const dialogRef = this.dialog.open(NewTraderDialogComponent, {
       data: { id, ...data },
     });
 
@@ -66,7 +66,7 @@ export class TraderListComponent {
       email: '',
       dob: '',
     };
-    const dialogRef = this.dialog.open(NewTraderDialogueComponent, {
+    const dialogRef = this.dialog.open(NewTraderDialogComponent, {
       data: data,
     });
 

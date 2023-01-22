@@ -19,7 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { NewTraderDialogueComponent } from './new-trader-dialogue/new-trader-dialogue.component';
+import { NewTraderDialogComponent } from './new-trader-dialog/new-trader-dialog.component';
 import { TraderAccountComponent } from './trader-account/trader-account.component';
 import { AmountDialogComponent } from './amount-dialog/amount-dialog.component';
 import { QuotesComponent } from './quotes/quotes.component';
@@ -30,7 +30,7 @@ import { QuotesComponent } from './quotes/quotes.component';
     DashboardComponent,
     NavbarComponent,
     TraderListComponent,
-    NewTraderDialogueComponent,
+    NewTraderDialogComponent,
     TraderAccountComponent,
     AmountDialogComponent,
     QuotesComponent,
