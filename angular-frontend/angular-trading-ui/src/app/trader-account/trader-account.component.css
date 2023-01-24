@@ -1,0 +1,35 @@
+.trader-account {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  align-items: flex-start;
+  margin: 10px;
+  padding: 10px;
+}
+
+.trader-details {
+  height: 200px;
+  width: 50%;
+  margin: 10px;
+  padding: 10px;
+  border-style: solid;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+p {
+  font-size: medium;
+}
+.trader-amount {
+  height: 200px;
+  width: 30%;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  background-color: white;
+}
