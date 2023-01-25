@@ -1,6 +1,6 @@
 # Junaid Ali Syed . Jarvis Consulting
 
-I am a recent graduate from University of Toronto with a specialization in software engineering. During my studies, I had the opportunity to work with different programming technologies including C, Python, Java, React, Javascript, and databases. I also have experience with multiple internships with software development as my most recent internship where I worked in a git flow agile scrum environment. Currently, I am a Software engineer at Jarvis where I have learned and upgraded my knowledge of technologies and skills. These include core java programming, testing, deployment, fundamental programming patterns/principles, and much more. My journey of becoming a software developer has been filled with continuous learning from as early as high school. I am an individual who is enthusiastic about learning, and amazing at problem-solving. I am passionate and self-driven where my future goals aspire me to join a company to utilize my knowledge in making creative solutions that are maintainable and impactful.
+I am a recent graduate from University of Toronto with a bachelor's degree in computer science. During my studies, I had the opportunity to work with different programming technologies including C, Python, Java, React, Javascript, and databases. I also have experience with multiple internships with software development as my most recent internship where I worked in a git flow agile scrum environment. Currently, I am a Software engineer at Jarvis where I have learned and upgraded my knowledge of technologies and skills. These include core java programming, testing, deployment, fundamental programming patterns/principles, and much more. My journey of becoming a software developer has been filled with continuous learning from as early as high school. I am an individual who is enthusiastic about learning, and amazing at problem-solving. I am passionate and self-driven where my future goals aspire me to join a company to utilize my knowledge in making creative solutions that are maintainable and impactful.
 
 ## Skills
 
@@ -34,7 +34,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JunaidSyed
 
 
 ## Education
-**University of Toronto (Sept 2018 - Aug 2022)**, Bachelor of Computer Science, Computer Science
+**University of Toronto (Sept 2018 - Aug 2022)**, Bachelor of Science, Computer and Mathematical Sciences
 - Entrance Scholarship
 - Dean's List (2018)
 - GPA: 3.39/4.0
