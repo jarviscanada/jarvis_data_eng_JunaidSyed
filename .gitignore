@@ -2,7 +2,7 @@
 *.iml
 intellij-java-google-style.xml
 target/
+*.out
 tsconfig.json
 package.json
-*.out
 .vscode
