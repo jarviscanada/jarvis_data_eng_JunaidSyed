@@ -4,7 +4,7 @@
 
 Tech Stack: Angular, Angular Material, Angular CLI, TypeScript, CSS, HTML
 
-The Angular Trading application is a web application for storing and managing trading accounts. The web application allows the user to manage accounts on the dashboard with functionalities of deleting, adding and viewing accounts. The user can also manage their trading funds by depositing and withdrawing funds into the account. The application also provides a a daily list of trading quotes available to be viewed.
+The Angular Trading application is a web application for storing and managing trading accounts. The web application allows the user to manage accounts on the dashboard with functionalities of deleting, adding and viewing accounts. The user can also manage their trading funds by depositing and withdrawing funds into the account. The application also provides a daily list of trading quotes available to be viewed.
 
 ### Quick Start
 
