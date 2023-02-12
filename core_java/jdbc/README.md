@@ -15,7 +15,7 @@ The JDBC project is a CRUD application to understand the workflow and operations
 ### DAO Design Pattern
 
 The Data Access Object (DAO) pattern is a structural pattern that allows us to isolate the application/business layer from the persistence layer (such as a relational database) using an abstract API.
-In this project the The DAO provides an abstraction between the JDBC and the business logic of the code.
+In this project the DAO provides an abstraction between the JDBC and the business logic of the code.
 Since we are using DAO as a pure abstraction layer, we make use of DTOs (data transfer objects). DTOs provide a single domain of data and fully encapsulates objects. The DTO is just a plain container for data, so it doesn't implement any other behavior. The JDBC project uses a concrete implementation of customer DAO and reacts to the entire domain of the customer data.
 
 ### Test
