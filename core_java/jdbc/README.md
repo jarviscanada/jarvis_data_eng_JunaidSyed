@@ -8,9 +8,9 @@ The JDBC project is a CRUD application to understand the workflow and operations
 
 ### Implementation
 
-## ER Diagram
+#### ER Diagram
 
-![ER Diagram](https://github.com/jarviscanada/jarvis_data_eng_JunaidSyed/blob/feature/architecture/linux_sql/assets/Architecture.drawio.png)
+![ER Diagram](https://github.com/jarviscanada/jarvis_data_eng_JunaidSyed/blob/feature/java_jdbc/core_java/assets/DBMS%20ER%20diagram%20(UML%20notation).png)
 
 ### DAO Design Pattern
 
