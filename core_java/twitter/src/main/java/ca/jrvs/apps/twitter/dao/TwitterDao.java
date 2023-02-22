@@ -30,7 +30,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
   // Response code
   private static final int HTTP_OK = 200;
 
-  private HttpHelper httpHelper;
+  private final HttpHelper httpHelper;
 
   @Autowired
   public TwitterDao(HttpHelper httpHelper) {
@@ -41,6 +41,40 @@ public class TwitterDao implements CrdDao<Tweet, String> {
   public Tweet create(Tweet tweet) {
     URI uri = getTweetUri(tweet);
     HttpResponse response = this.httpHelper.httpPost(uri);
+    return parseResponseBody(response, HTTP_OK);
+  }
+
+  @Override
+  public Tweet deleteById(String s) {
+    // Construct the URI
+    URI uri;
+    try {
+      uri = new URI(API_BASE_URI + DELETE_PATH + "/" + s + ".json");
+    } catch (URISyntaxException ex) {
+      throw new IllegalArgumentException("Invalid id input", ex);
+    }
+
+    // Execute HTTP request
+    HttpResponse response = httpHelper.httpPost(uri);
+
+    // Validate response and deserialize to a Tweet object
+    return parseResponseBody(response, HTTP_OK);
+  }
+
+  @Override
+  public Tweet findById(String s) {
+    // Construct the URI
+    URI uri;
+    try {
+      uri = new URI(API_BASE_URI + SHOW_PATH + QUERY_SYM + "id" + EQUAL + s);
+    } catch (URISyntaxException ex) {
+      throw new IllegalArgumentException("Invalid id input", ex);
+    }
+
+    // Execute HTTP request
+    HttpResponse response = httpHelper.httpGet(uri);
+
+    // Validate response and deserialize to a Tweet object
     return parseResponseBody(response, HTTP_OK);
   }
 
@@ -59,7 +93,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
   }
 
   Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode) {
-    Tweet tweet = null;
+    Tweet tweet;
 
     // Check response status
     int status = response.getStatusLine().getStatusCode();
